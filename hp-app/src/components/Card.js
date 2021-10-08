@@ -21,10 +21,10 @@ export default function Card({homeHouse}) {
                     <div>Harry Potter</div>
                 </div>
                 <div className="dates__card">
-                    <div><div>Cumpleaños:</div>asdas</div>
-                    <div><div>Genero:</div>asdas</div>
-                    <div><div>Color de ojos:</div>asdas</div>
-                    <div><div>Color de pelo:</div>asdas</div>
+                    <div className="date__content"><div className="dates_title">Cumpleaños:</div>asdas</div>
+                    <div className="date__content"><div className="dates_title">Genero:</div>asdas</div>
+                    <div className="date__content"><div className="dates_title">Color de ojos:</div>asdas</div>
+                    <div className="date__content"><div className="dates_title">Color de pelo:</div>asdas</div>
 
                 </div>
 

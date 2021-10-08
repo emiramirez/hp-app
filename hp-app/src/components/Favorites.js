@@ -4,7 +4,7 @@ import FavoriteOne from './FavoriteOne'
 export default function Favorites({active=1}) {
     
     return (
-        <div className={"wrapper__favorites hidden"}>
+        <div className={"wrapper__favorites active"}>
             <FavoriteOne />
             <FavoriteOne />
             <FavoriteOne />

@@ -9,6 +9,8 @@ $hufflepuff:linear-gradient(135deg, #FFC700 0%, #FFF388 100%);
 $button:rgba(0, 0, 0, 0.6);
 $btnHover:rgba(107, 99, 181, 0.6);
 $buttonBorder:#6B63B5;
+$textCard: #374A59;
+
 $boxShadow:0px 4px 4px rgba(0, 0, 0, 0.25);
 /*Sizes*/
 $small: 480px;
@@ -187,8 +189,9 @@ body{
    } 
 }
 .name__card{
-  color: #081F32;
   font-weight: bold;
+  color: $textCard;
+  margin-bottom: 10px;
 
     @media screen and (max-width: $small) {
       display: block;
@@ -196,19 +199,37 @@ body{
     
      }
      @media screen and (min-width: $lg) {
-     display: block;
+     align-content: start;
+     text-align: left;
      } 
 
 }
 .dates__card{
+  color:$black;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  ;
+  
   @media screen and (max-width: $small) {
     display: none
 
    }
    @media screen and (min-width: $lg) {
-   display: block;
+   
    } 
 
+}
+.date__content{
+  display: flex;
+  flex-direction: row;
+}
+
+.dates_title{
+  font-weight: bold;
+  color: $textCard;
+  padding-right: 4px;
 }
 .head__menu{
   display: flex;
