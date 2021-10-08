@@ -1,0 +1,385 @@
+/*Colors*/
+$white:#fff;
+$black:#000;
+$cofee:#999999;
+$gryffindor:linear-gradient(135deg, #FF0000 0%, #FED482 100%);
+$slitherin: linear-gradient(135deg, #1C792B 0%, #82E95E 100%);
+$ravenclaw:linear-gradient(135deg, #0597B7 0%, #66D1FF 100%);
+$hufflepuff:linear-gradient(135deg, #FFC700 0%, #FFF388 100%);
+$button:rgba(0, 0, 0, 0.6);
+$btnHover:rgba(107, 99, 181, 0.6);
+$buttonBorder:#6B63B5;
+$boxShadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+/*Sizes*/
+$small: 480px;
+$lg: 1260px;
+body{
+  margin: 0;
+  padding: 0;
+  background: $black;
+}
+.gryffindor{
+  background: $gryffindor;
+}
+.sliherin{
+  background: $slitherin;
+}
+.ravenclaw{
+  background: $ravenclaw;
+}
+.hufflepuff{
+  background: $hufflepuff;
+}
+.icons{
+  margin-left: 5px;
+  margin-top: 0px;
+  height: 23px;
+  width: 23px;
+}
+
+.container {
+  text-align: center;
+  
+}
+
+.component__card{
+  height: 265px;
+  background: $white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 16px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+ 
+  @media screen and (max-width: $small) {
+    width: 40%;  
+    margin: 10px;
+    flex-direction: column;
+  }
+  @media screen and (min-width: $lg) {
+    width: 515px;
+    margin: 20px;
+    flex-direction: row;
+  }
+  
+}
+
+.harry {
+  height: 66px;
+  width: 194px;
+  filter: invert(100%);
+}
+.container__cards{
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (max-width: $small) {
+    justify-content: center;
+  }
+  @media screen and (min-width: $lg) {
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+.photo__card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: $small) {
+    width: 100%;  
+    height: 50%;
+    border-radius: 16px 16px 0px 0px;
+  }
+  @media screen and (min-width: $lg) {
+    width: 210px;
+    height: 100%;
+    border-radius: 16px 0px 0px 16px;
+  }
+}
+.photo{
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: $small) {
+    width: 109px;
+    height: 120px;
+  }
+  @media screen and (min-width: $lg) {
+    width: 169px;
+    height: 230px;
+  }
+}
+.img{
+  border-radius: 50%;
+  
+  @media screen and (max-width: $small) {
+    width: 100px;
+    height: 100px;
+    background-position:center;
+  }
+  @media screen and (min-width: $lg) {
+    width: 169px;
+    height: 169px;
+    background-position:top center;
+  }
+}
+.info__card{
+  padding: 15px;
+  margin: 0;
+  
+  @media screen and (max-width: $small) {
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 80%;
+    height: 100%;
+    justify-content: space-around;
+
+
+  }
+  @media screen and (min-width: $lg) {
+  width: 305px;
+  }
+}
+.top__live{
+  color: $cofee;
+  font-size: 14px;
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  @media screen and (max-width: $small) {
+   flex-direction: column;
+  }
+  @media screen and (min-width: $lg) {
+  flex-direction: row;
+  }
+
+}
+.top__aux{
+  @media screen and (max-width: $small) {
+    display: none;
+   }
+   @media screen and (min-width: $lg) {
+   display: block;
+   } 
+}
+.top__card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media screen and (max-width: $small) {
+   padding: 0;
+   }
+   @media screen and (min-width: $lg) {
+  
+   } 
+}
+.icon__live{
+  color:  $cofee;
+  margin: 5px;
+  @media screen and (max-width: $small) {
+    height: 35px;
+    width: 35px;
+  
+   }
+   @media screen and (min-width: $lg) {
+   display: block;
+   } 
+}
+.name__card{
+  color: #081F32;
+  font-weight: bold;
+
+    @media screen and (max-width: $small) {
+      display: block;
+      justify-content: center;
+    
+     }
+     @media screen and (min-width: $lg) {
+     display: block;
+     } 
+
+}
+.dates__card{
+  @media screen and (max-width: $small) {
+    display: none
+
+   }
+   @media screen and (min-width: $lg) {
+   display: block;
+   } 
+
+}
+.head__menu{
+  display: flex;
+  flex-direction: row;
+  
+  box-shadow: $boxShadow;
+  @media screen and (min-width: $small) {
+    align-items:end;
+
+  }
+  @media screen and (min-width: $lg) {
+    margin-right: 15%;
+    justify-content: end;
+  }
+}
+
+.option {
+  cursor: pointer;
+  background: $buttonBorder;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius:0 0 10px 10px;
+  color:$white;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+  margin:0 1px 0 1px;
+  font-size: 14px;
+  z-index: 10;
+  @media screen and (max-width: $small) {
+    width: 50%;
+    height: 36px;
+  }
+  @media screen and (min-width: $lg) {
+    width: 140px;
+    height: 36px;
+  }
+}
+.wrapper__favorites{
+  display: flex;
+  flex-direction: column;
+  margin-top: -10px;
+  position: relative;
+  margin-right: 17%;
+  justify-content: end;
+  @media screen and (min-width: $small) {
+    align-items:end;
+    width: 100%;
+    padding: 5px;
+    margin-right: 0px;
+
+  }
+  @media screen and (min-width: $lg) {
+    margin-right: 17%;
+    justify-content: end;
+  }
+}
+.box{
+  position: absolute;
+  right: 14.8%;
+
+
+}
+.delete__icon{
+  height:45px;
+  width: 45px;
+}
+.hr{
+border: 1px solid #403B6D;
+width: 200px;
+padding: 0;
+align-self: center;
+
+}
+.img__icon{
+  height: 52px;
+  width: 52px;
+  z-index: 101;
+  border-radius: 50%;
+  margin-left: 10px;
+  align-content: flex-end;
+}
+.hidden{
+  display: none;
+}
+.active{
+  display: block;
+}
+.option__fav{
+  position:relative;
+  cursor: pointer;
+  padding-top: 20px;
+  background: $buttonBorder;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius:0 0 10px 10px;
+  color:$white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items:center;
+  border-bottom: 1px solid $black;
+  z-index: 80;
+  width: 282px;
+  height: 70px;
+  @media screen and (max-width: $small) {
+    width: 100vw;
+    height: 40px;
+  }
+  @media screen and (min-width: $lg) {
+    width: 282px;
+    height: 70px;
+  }
+}
+.button{
+  background: $button;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  font-family:'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  border:4px solid $buttonBorder;
+  font-weight: lighter;
+  justify-content: center;
+    &:hover{
+    background: $btnHover;
+    }
+    @media screen and (max-width: $small) {
+      width: 160px;
+      height: 36px;
+      font-size: 12px;
+      margin: 5px;
+    }
+    @media screen and (min-width: $lg) {
+      margin: 30px;
+      width:288px;
+      height: 66px;
+      font-size: 17px;
+    }
+}
+.container__buttons{
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: $small) {
+    justify-content: space-around;
+    margin-bottom: 25px;
+  }
+  @media screen and (min-width: $lg) {
+    justify-content: center;
+  }
+}
+.wrapper {
+  background-image: url('./files/images/castle3.jpg');
+  padding-top: 20%;
+  background-size: 100% 55%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-top:-106px;
+  @media screen and (max-width: $small) {
+    background-image: none;
+  }
+}
+

@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from './files/images/logo.png';
+import './styles.scss';
+import Title from "./components/Title"
+import Button from './components/Button';
+import Card from './components/Card';
+import MenuTop from './components/MenuTop';
+import Favorites from './components/Favorites';
+import { useState } from 'react';
 function App() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const handleDrawerToggle =()=> {
+     setMobileOpen(!mobileOpen)
+      console.log("chenged :-")
+  };
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container"> 
+      <MenuTop />  
+      <div className="box">
+      <Favorites active={mobileOpen}/>
+     
+      </div>  
+      
+      
+      <div className="wrapper">
+        <img src={logo} className="harry" alt="logo"  />
+        <Title title="Selecciona tu filtro"/>
+        <div className="container__buttons">
+          <Button title="ESTUDIANTES"/>
+          <Button title="STAFF"/>
+        </div>
+        <div className="container__cards">
+          <Card homeHouse="sliherin"/>
+          <Card homeHouse="gryffindor"/>
+          <Card homeHouse="ravenclaw"/>
+          <Card homeHouse="hufflepuff"/>
+            
+          </div>
+      </div>
     </div>
+
   );
 }
 
