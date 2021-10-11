@@ -1,15 +1,23 @@
 import React from 'react'
 import { RiDeleteBin5Line } from 'react-icons/ri';
-export default function FavoriteOne({ open, handleClick }) {
-   
-    return (
+import {connect} from "react-redux"
+const FavoriteOne=({props,nombre, image, quitarFavorito,f})=>(
         <div className="option__fav">
-           
-            <img src="http://hp-api.herokuapp.com/images/hermione.jpeg" alt="image" className="img__icon"/>
-            <div>asdadsas</div>
-            <RiDeleteBin5Line className="delete__icon"/>
-           
-        
+            <img src={image} alt="image" className="img__icon"/>
+            <div>{nombre}</div>
+            <RiDeleteBin5Line className="delete__icon" onClick={()=>quitarFavorito(f)}/>
         </div>
     )
-}
+const mapStateToProps=state=>({
+    favoritos:state.favoritos
+})
+const mapDispatchToProps=dispatch=>({
+
+    quitarFavorito(favorito){
+        dispatch({
+            type:"QUITAR_FAVORITO",
+            favorito
+        })
+    }
+})
+export default  connect(mapStateToProps, mapDispatchToProps) (FavoriteOne)

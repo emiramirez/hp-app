@@ -1,37 +1,47 @@
 import React from 'react'
 import {FaRegBookmark} from 'react-icons/fa';
-export default function Card({homeHouse, image, name, student,alive}) {
-    return (
-        
-        
-        <div className="component__card">
-            <div className={"photo__card "+homeHouse}>
+import {connect} from "react-redux"
+const Card=({props, agregarFavoritos})=>(
+    
+        <div className={props.alive?"component__card":"component__card death"} >
+            <div className={"photo__card "+props.house}>
                 <div className="photo">
-                <img src={image} alt="image" className="img"/>
+                <img src={props.image} alt="image" className="img"/>
                 </div>
             </div>
             <div className="info__card">
                 <div className="top__card"> 
                    <div className="top__live"> 
-                   {(alive?<div>VIVO</div>:<div>MUERTO</div>)}
+                   {(props.alive?<div>VIVO </div>:<div>MUERTO</div>)}
                         <div className="top__aux">&nbsp; / &nbsp;</div>
-                        {(student?<div>Estudiante</div>:<div>STAFF</div>)}
-                      
+                        {(props.student?<div>Estudiante</div>:<div>STAFF</div>)}
                    </div>
-                   <FaRegBookmark className="icon__live"/>
+                   <FaRegBookmark className="icon__live" onClick={()=>agregarFavoritos(props)}/>
                 </div>
                 <div className="name__card">
-                    <div>{name}</div>
+                    <div>{props.name}</div>
                 </div>
                 <div className="dates__card">
-                    <div className="date__content"><div className="dates_title">Cumpleaños:</div>12-05-1998</div>
-                    <div className="date__content"><div className="dates_title">Genero:</div>Male</div>
-                    <div className="date__content"><div className="dates_title">Color de ojos:</div>Black</div>
-                    <div className="date__content"><div className="dates_title">Color de pelo:</div>Brown</div>
+                    <div className="date__content"><div className="dates_title">Cumpleaños: {props.alive} </div>{props.dateOfBirth}</div>
+                    <div className="date__content"><div className="dates_title">Genero:</div>{props.gender}</div>
+                    <div className="date__content"><div className="dates_title">Color de ojos:</div>{props.eyeColour}</div>
+                    <div className="date__content"><div className="dates_title">Color de pelo:</div>{props.hairColour}</div>
                 </div>
 
             </div>
             
         </div>
     )
-}
+    const mapStateToProps=state=>({
+        favoritos:state.favoritos
+    })
+    
+    const mapDispatchToProps=dispatch=>({
+        agregarFavoritos(favorito){
+            dispatch({
+                type:'AGREGAR_FAVORITO',
+                favorito
+            })
+        }
+    })
+    export default  connect(mapStateToProps, mapDispatchToProps) (Card)

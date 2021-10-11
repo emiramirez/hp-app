@@ -1,18 +1,14 @@
 import React from 'react'
 import ButtonTop from './ButtonTop'
 import { useState } from 'react';
-export default function MenuTop() {
-    const [mobileOpen, setMobileOpen] = useState(false);
-  const handleDrawerToggle =()=> {
-     setMobileOpen(!mobileOpen)
-      console.log("chenged :-", mobileOpen,)
-  };
+export default function MenuTop(props) {
+
     return (
         <div className="head__menu"> 
             
-            <ButtonTop title="FAVORITOS" icon="1"  action={handleDrawerToggle}/>
+            <ButtonTop title="FAVORITOS" icon="1" onClick={()=>props.action()}/>
             
-            <ButtonTop title="AGREGAR" icon="2"/> 
+            <ButtonTop title="AGREGAR" icon="2" onClick={()=>props.action2()}/> 
             
             
             

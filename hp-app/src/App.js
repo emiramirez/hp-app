@@ -7,58 +7,69 @@ import MenuTop from './components/MenuTop';
 import Favorites from './components/Favorites';
 import { useState, useEffect } from 'react';
 import {helpHttp} from "./helpers/helper"
+import Add from './components/Add';
+import { Provider } from 'react-redux';
+import store from "./store"
 function App() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menu, setMenu] = useState(false);
   const [data,setData] =useState([])
+  const [form, setForm]=useState(false)
+  const changeForm =()=> {
+    setForm(!menu)
+ };
   const handleDrawerToggle =()=> {
-     setMobileOpen(!mobileOpen)
-      console.log("chenged :-")
+     setMenu(!menu)
   };
-  let api=helpHttp();
+  const getStudents=()=>{
+    fetch(source)
+    .then(response => response.json())
+    .then(data =>(
+      setData(data[0].filter(name=>name.hogwartsStudent==true))
+      
+      )
+    ) 
+  }
+  const getStaff=()=>{
+    fetch(source)
+    .then(response => response.json())
+    .then(data =>(
+      setData(data[0].filter(name=>name.hogwartsStaff==true))
+      )
+    ) 
+  }
   let source="http://localhost:8000/characters"
-
   useEffect(() => {
-    
-   api.get(source).then((res)=>{
-     console.log(res)
-     
-     if(!res.error){
-       setData(res)
-      }else{
-        setData(null)
-      }
-   });
-  }, []);
-  
+  fetch(source)
+  .then(response => response.json())
+  .then(data =>(
+    setData(data[0])
+    )
+  ) 
 
+  }, []);
   return (
+    <Provider store={store}>
     <div className="container"> 
-      <MenuTop />  
+    <MenuTop id="mybutton"action={handleDrawerToggle} action2={()=>setForm(true)}/>
+      {form ?<Add form={form} onClose={()=>setForm(false)} /> :null}
       <div className="box">
-      <Favorites active={mobileOpen}/>
+        {menu ?<Favorites /> :null}
       </div>  
       <div className="wrapper">
         <img src={logo} className="harry" alt="logo"  />
         <Title title="Selecciona tu filtro"/>
         <div className="container__buttons">
-          <Button title="ESTUDIANTES"/>
-          <Button title="STAFF"/>
+          <Button title="ESTUDIANTES" onClick={getStudents} />
+          <Button title="STAFF" onClick={getStaff}/>
         </div>
+        
         <div className="container__cards">
-          {data[0].map?(data[0].map((name) =>
-    <Card key={name.toString()} homeHouse={name.house} image={name.image} name={name.name} student={name.hogwartsStudent} alive={name.alive} />)):(<div>no trae</div>)}
- 
-  )
-          {/* <Card homeHouse="sliherin"/>
-          <Card homeHouse="gryffindor"/>
-          <Card homeHouse="ravenclaw"/>
-          <Card homeHouse="hufflepuff"/> */}
-            
-          </div>
+          {data.map?(data.map((name, index) =>   
+          <Card key={index} props={name}/>)):(<div>no trae</div>)} 
+        </div>
       </div>
     </div>
-
+    </Provider>
   );
 }
-
 export default App;
