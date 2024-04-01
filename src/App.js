@@ -10,6 +10,8 @@ import {helpHttp} from "./helpers/helper"
 import Add from './components/Add';
 import { Provider } from 'react-redux';
 import store from "./store"
+
+  let source="http://localhost:8000/characters"
 function App() {
   const [menu, setMenu] = useState(false);
   const [data,setData] =useState([])
@@ -37,7 +39,7 @@ function App() {
       )
     ) 
   }
-  let source="http://localhost:8000/characters"
+
   useEffect(() => {
   fetch(source)
   .then(response => response.json())
